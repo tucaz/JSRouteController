@@ -4,33 +4,33 @@ It scans all existing controllers in the executing assembly looking for actions 
 
 To get started simply drop the JSRouteController.cs into you Controllers folder in your ASP.NET MVC project and configure the desired route in global.asax.cs as follows:
 
-public static void RegisterRoutes(RouteCollection routes)
-{	
-	routes.MapRoute(
-		"JavascriptRoutes", //Route name
-		"Scripts/Routes.js", //The desired URL to access the generated routes
-		new { 
-			controller = "JSRoute", 
-			action = "GetAll", 
-			@namespace = "MyAppRoutes", //Desired namespace to hold the routes
-			sufix = "JSON"  //Sufix used to identify actions that should be included in the output script
-		}
-	);
-	
-	/* Other mapped routes */
-}
+	public static void RegisterRoutes(RouteCollection routes)
+	{	
+		routes.MapRoute(
+			"JavascriptRoutes", //Route name
+			"Scripts/Routes.js", //The desired URL to access the generated routes
+			new { 
+				controller = "JSRoute", 
+				action = "GetAll", 
+				@namespace = "MyAppRoutes", //Desired namespace to hold the routes
+				sufix = "JSON"  //Sufix used to identify actions that should be included in the output script
+			}
+		);
+		
+		/* Other mapped routes */
+	}
 
 Now you can include it in your view as you would with any other javascript library
 
-<script src="@Url.Content("~/Scripts/App/Routes.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/App/Routes.js")" type="text/javascript"></script>
 
 And call it from the client side script
 
-MyAppRoutes.SomeController.SomeAction() //returns /SomeController/SomeAction
+	MyAppRoutes.SomeController.SomeAction() //returns /SomeController/SomeAction
 
 If the action responds to a GET verb and has parameters you can also pass them when using the route
 
-MyAppRoutes.SomeController.ActionWithParameter(pmt1value, pmt2value) //returns /SomeController/ActionWithParameter?pmt1=pmt1value&pmt2value
+	MyAppRoutes.SomeController.ActionWithParameter(pmt1value, pmt2value) //returns /SomeController/ActionWithParameter?pmt1=pmt1value&pmt2value
 
 Disclaimer
 
