@@ -28,7 +28,7 @@ To get started simply drop the JSRouteController.cs into you Controllers folder 
 	
 From this on all actions ending with "JSON" will be parsed and added to the output javascript
 
-public ActionResult MyActionJSON() { /* some code */ } 
+	public ActionResult MyActionJSON() { /* some code */ } 
 
 Now you can include it in your view as you would with any other javascript library
 
