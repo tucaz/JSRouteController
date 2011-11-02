@@ -32,7 +32,7 @@ public ActionResult MyActionJSON() { /* some code */ }
 
 Now you can include it in your view as you would with any other javascript library
 
-	<script src="@Url.Content("~/Scripts/App/Routes.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/Routes.js")" type="text/javascript"></script>
 	
 To get a Javascript like this one
 
