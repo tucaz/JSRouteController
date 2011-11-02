@@ -54,7 +54,7 @@ If the action responds to a GET verb and has parameters you can also pass them w
 
 	MyAppRoutes.SomeController.ActionWithParameter(pmt1value, pmt2value) //returns /SomeController/ActionWithParameter?pmt1=pmt1value&pmt2value
 	
-All other actions with parameters but are not HttpGet have the parameters ommited in the resulting javascript
+All other actions with parameters, but without the HttpGet attribute have the parameters ommited in the resulting javascript
 
 Disclaimer
 ==========
