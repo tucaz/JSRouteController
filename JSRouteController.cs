@@ -53,6 +53,16 @@ namespace JSUtils
             }
             */
 
+            var _nameSpaces = routesPropertyName.Split('.');
+            string _nameSpaceParsed = string.Empty;
+            foreach (string currentName in _nameSpaces)
+            { 
+                _nameSpaceParsed = _nameSpaceParsed + currentName + '.';
+                string _nameSpaceToAppend = _nameSpaceParsed.Substring(0, _nameSpaceParsed.Length - 1);
+                script.AppendFormat("{0} = {1};", _nameSpaceToAppend, "{}");
+                
+            }
+            
             script.AppendFormat("{0} = {{{1}}};",
                 routesPropertyName,
                 allActions.Aggregate(String.Empty, (controllers, group) =>
