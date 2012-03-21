@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Package</id>
+    <id>JSRouteController</id>
     <version>0.1.0</version>
     <authors>Tucaz</authors>
     <owners>Alvaro</owners>
