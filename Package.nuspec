@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Package</id>
+    <version>0.1.0</version>
+    <authors>Tucaz</authors>
+    <owners>Alvaro</owners>
+    <projectUrl>https://github.com/oliveiraa/JSRouteController</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is a simple controller that will dynamically create Javascript routes for your controllers based on convetions.</description>
+    <releaseNotes>First version</releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>Javascript MVC</tags>
+    <dependencies>
+
+    </dependencies>
+  </metadata>
+</package>
