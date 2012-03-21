@@ -5,11 +5,19 @@ A very simple plugin to generate routes dynamically for client side script (java
 
 It scans all existing controllers in the executing assembly looking for actions that match the specified sufix and generates a javascript file to be included by calling client script.
 
-To get started
+To get started 
 ==============
 
-To get started simply drop the JSRouteController.cs into you Controllers folder in your ASP.NET MVC project and configure the desired route in global.asax.cs as follows:
+Step 1. Nuget - Add Controller
+------------------------------
+PM> Install-Package JSRouteController
 
+Step 1. Add controller manually
+-------------------------------
+Simply drop the JSRouteController.cs into you Controllers folder in your ASP.NET MVC project.
+
+Step 2. Global.asax
+-------------------
 	public static void RegisterRoutes(RouteCollection routes)
 	{	
 		routes.MapRoute(
@@ -26,15 +34,35 @@ To get started simply drop the JSRouteController.cs into you Controllers folder 
 		/* Other mapped routes */
 	}
 	
-From this on all actions ending with "JSON" will be parsed and added to the output javascript
-
-	public ActionResult MyActionJSON() { /* some code */ } 
-
+Step 3. Script Tag
+------------------
 Now you can include it in your view as you would with any other javascript library
 
 	<script src="@Url.Content("~/Scripts/Routes.js")" type="text/javascript"></script>
 	
-To get a Javascript like this one
+Step 4. Javascript code
+-----------------------
+From the client side script, just use javascript variable that holds the route address
+
+	MyAppRoutes.SomeController.SomeAction() //returns /SomeController/SomeAction
+
+If the action responds to a GET verb and has parameters you can also pass them when using the route
+
+	MyAppRoutes.SomeController.ActionWithParameter(pmt1value, pmt2value) //returns /SomeController/ActionWithParameter?pmt1=pmt1value&pmt2value
+	
+All other actions with parameters, but without the HttpGet attribute have the parameters ommited in the resulting javascript
+	
+How it works
+==========
+	
+Conventions
+-----------
+
+From this on all actions ending with "JSON" will be parsed and added to the output javascript
+
+	public ActionResult MyActionJSON() { /* some code */ } 
+	
+The generated Javascript file will look like the following sample :
 
 	MyAppRoutes = {
 					Controller1: {
@@ -46,15 +74,7 @@ To get a Javascript like this one
 					}
 				}
 
-And call it from the client side script
 
-	MyAppRoutes.SomeController.SomeAction() //returns /SomeController/SomeAction
-
-If the action responds to a GET verb and has parameters you can also pass them when using the route
-
-	MyAppRoutes.SomeController.ActionWithParameter(pmt1value, pmt2value) //returns /SomeController/ActionWithParameter?pmt1=pmt1value&pmt2value
-	
-All other actions with parameters, but without the HttpGet attribute have the parameters ommited in the resulting javascript
 
 Disclaimer
 ==========
